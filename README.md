@@ -1,4 +1,4 @@
-# convolutional-neural-network
+# EVA
 
 ## Assignment 1B
 
