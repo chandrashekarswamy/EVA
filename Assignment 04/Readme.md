@@ -62,6 +62,7 @@ when our image is 7*7 or less as our kernel will cover some pixels more time tha
 comparing the for out put of forst two Epochs
 
 21. Batch Size, and effects of batch size
+number of images that we test before back propagetion.
 
 22. When to add validation checks
 when we want to see which epoch will give better result.
