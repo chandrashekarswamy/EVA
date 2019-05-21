@@ -1,12 +1,12 @@
-1. How many layers,
+#1. How many layers,
 Based on CPU/GPU requirements we need to decide how many parameter we can use. 
 Based on number of parameters and the accuracy (usecase) we can decide the number of layers.
 
-2. MaxPooling,
+#2. MaxPooling,
 We can think of MaxPooling when we want to reduce the number of channels, this inturn reduces the parameters as well
 
-3. 1x1 Convolutions,
-Merging the similar features do that 3*3 should not create something new when we already have what we want.
+#3. 1x1 Convolutions,
+Merging the similar features and create the complex channels, we use this to reduce the number of channels currently, it needs less computation an less parameters
 
 4. 3x3 Convolutions,
 Best and Optimal Kernal, feature extractor.
