@@ -1,73 +1,74 @@
 #### 1. How many layers,
-Based on CPU/GPU requirements we need to decide how many parameter we can use. 
-Based on number of parameters and the accuracy (usecase) we can decide the number of layers.
+	Based on CPU/GPU requirements we need to decide how many parameter we can use. 
+	Based on number of parameters and the accuracy (usecase) we can decide the number of layers.
 
-#### 2. MaxPooling,
-We can think of MaxPooling when we want to reduce the number of channels, this inturn reduces the parameters as well
+#### 2. 3x3 Convolutions,
+	Best and Optimal Kernal, feature extractor.
 
-#### 3. 1x1 Convolutions,
-Merging the similar features and create the complex channels, we use this to reduce the number of channels currently, it needs less computation an less parameters
+#### 3. Kernels and how do we decide the number of kernels?
+	Based on the number of classification or amount of information needed and hardware available.
 
-#### 4. 3x3 Convolutions,
-Best and Optimal Kernal, feature extractor.
+#### 4. Receptive Field,
+	This will give total number of pixels that our kernals have seen. 
+	ex: If we use two 3*3 kernels then Receptive fields = 5*5 
 
-#### 5. Receptive Field,
-this will give total number of pixels that our kernels have covered. 
-ex: If we use two 3*3 kernels then Receptive fields = 5*5 
+#### 5. MaxPooling,
+	We can think of MaxPooling when we want to reduce the number of channels, this inturn reduces the parameters as well
 
-#### 6. SoftMax,
-Activation function which will exaggerate the output.
+#### 6. Position of MaxPooling,
+	Minimum 2 layers away from the final/decisition makeing layer, and also maxpooling should be applied atleast after 3 layers of convolution.
 
-#### 7.Learning Rate,
-This has to be optimal, as of now we reduce the learning rate gradually
+#### 7. The distance of MaxPooling from Prediction,
+	Minimum 2 layers
 
-#### 8. Kernels and how do we decide the number of kernels?
-lesser the kernal size lesser the number of parameters we use.
-even number kernal can not be symmetrical so we use odd number kernels.
-3*3 is the most optimal one.
+#### 8. 1x1 Convolutions,
+	Merging the similar features and create the complex channels, we use this to reduce the number of channels currently, it needs less computation an less parameters
 
-#### 9. Batch Normalization,
-it will increase the depth of the bright pixel to max depth of that layer and decrease the depth of dark pixel to min depth found in that layer
+#### 9. Concept of Transition Layers,
+	MaxPooling + 1*1
 
-#### 10. Image Normalization,
+#### 10. Position of Transition Layer,
+	After we reach receptive fields of atleast 7*7 in small images ex: 28*28 and atleast 11*11 in case of big images ex: 400*400
 
-#### 11. Position of MaxPooling,
-min 2 layers away from the final/decisition makeing layer, and also maxpooling should be applied atleast after 3 layers of convolution.
+#### 11. SoftMax,
+	Activation function which will exaggerate the output.
 
-#### 12. Concept of Transition Layers,
-MaxPooling + 1*1
+#### 12. Batch Size, and effects of batch size
+	On increase in batch size accuracy will improves as backpropagetion will have average value of all the classes
 
-#### 13. Position of Transition Layer,
-After we reach receptive fields of atleast 7*7 in small images ex: 28*28 and atleast 11*11 in case of big images ex: 400*400
+#### 13. Batch Normalization,
+	It will increase the depth of the bright pixel to max depth of that layer and decrease the depth of dark pixel to min depth found in that layer
 
-#### 14. Number of Epochs and when to increase them,
-increase in number of Epochs will increare the accuracy to certain extent then it reach a max accuracy and reduce again.
+#### 14. The distance of Batch Normalization from Prediction,
+	One 
 
-#### 15. DropOut
-To reduce the over fitting, 
+#### 15. Image Normalization,
+	Noramlize the image beore 
 
-#### 16 When do we introduce DropOut, or when do we know we have some overfitting
-To bring down the difference between training accuracy and validation accuracy.
-High training accuracy and low validation accuracy = overfitting
+#### 16. When do we stop convolutions and go ahead with a larger kernel or some other alternative (which we have not yet covered)
+	When our image is 7*7 or less as our kernel will cover some pixels more time than others. 
 
-#### 17. The distance of MaxPooling from Prediction,
-minimum 2 layers
+#### 17. How do we know our network is not going well, comparatively, very early
+	comparing the for out put of forst two Epochs
 
-#### 18. The distance of Batch Normalization from Prediction,
-one 
+#### 18. DropOut
+	To reduce the over fitting, and to balckout some kernels so that other kernal learning improves.
 
-#### 19. When do we stop convolutions and go ahead with a larger kernel or some other alternative (which we have not yet covered)
-when our image is 7*7 or less as our kernel will cover some pixels more time than others. 
+#### 19. When do we introduce DropOut, or when do we know we have some overfitting
+	To bring down the difference between training accuracy and validation accuracy.
+	High training accuracy and low validation accuracy = overfitting
 
-#### 20. How do we know our network is not going well, comparatively, very early
-comparing the for out put of forst two Epochs
+#### 20.Learning Rate,
+	This has to be optimal, as of now we reduce the learning rate gradually
 
-#### 21. Batch Size, and effects of batch size
-number of images that we test before back propagetion.
+#### 21. LR schedule and concept behind it
+	we can use this shedule to reduce the LR only when test accuracy is constant or not improvig.
 
-#### 22. When to add validation checks
-when we want to see which epoch will give better result.
+#### 22. Number of Epochs and when to increase them,
+	if the validation accuracy is improving then we can increase numer of Epochs to see where it reached highest accuracy value.
 
-#### 23. LR schedule and concept behind it
+#### 23. When to add validation checks
+	when we want to see which epoch will give better result.
 
 #### 24. Adam vs SGD
+	Optimization functions
