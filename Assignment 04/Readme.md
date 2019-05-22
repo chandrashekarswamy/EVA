@@ -1,3 +1,5 @@
+## Architectural Basics
+
 #### 1. How many layers,
 	Based on CPU/GPU requirements we need to decide how many parameter we can use. 
 	Based on number of parameters and the accuracy (usecase) we can decide the number of layers.
